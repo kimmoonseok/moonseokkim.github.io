@@ -1,0 +1,31 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="thumnail.css">
+    </head>
+<body>
+ <!-- Fixed navbar -->
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/alpha/index">도서검색</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <form class="form-inline mt-2 mt-md-0" action="alpha/thumnail" method="post">
+          <input class="form-control mr-sm-2" type="text" name="bookname" placeholder="원하는 키워드 검색">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="album text-muted">
+      <div class="container">
+        <p><%=@book%>을 검색하였습니다.</p>
+        <div class="row">
+          <% @thumnails.each do |x|%>
+          <div class="card">
+            <img src="<%= x.imge %>">
+            <p class="card-text"><%=x.head%></p>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    </body>
